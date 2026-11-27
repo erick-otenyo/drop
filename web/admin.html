@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>drop admin</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>dr<span>o</span>p</h1>
+    <nav id="nav" hidden>
+      <button id="tab-session" type="button" class="on">Session</button>
+      <button id="tab-history" type="button">History</button>
+    </nav>
+    <span class="spacer"></span>
+    <span id="status" class="badge" hidden></span>
+    <button id="quit" type="button" class="small">Quit drop</button>
+  </header>
+
+  <section id="gone" class="panel" hidden>
+    <p id="gone-msg"></p>
+    <p class="muted">Run <code>drop</code> in a terminal to open it again. You can close this tab.</p>
+  </section>
+
+  <section id="start" class="panel" hidden>
+    <div class="start-row">
+      <div>
+        <strong id="start-title">Start a session</strong>
+        <div class="muted" id="start-sub">Share text with one other computer. Nothing is reachable until you start.</div>
+      </div>
+      <div class="actions">
+        <button id="start-lan" type="button" class="primary">Start LAN session</button>
+        <button id="start-net" type="button">Start internet session</button>
+        <button id="cancel" type="button" hidden>Cancel</button>
+      </div>
+    </div>
+    <div id="notice" class="notice" hidden></div>
+    <p id="start-error" class="error" role="alert" hidden></p>
+  </section>
+
+  <section id="session" class="thread-wrap" hidden>
+    <div id="pair" class="panel pair">
+      <div id="pair-addr"><div class="label">On the other computer, open</div><div class="value" id="addr"></div></div>
+      <div id="pair-code"><div class="label">Then enter the code</div><div class="value" id="code"></div></div>
+      <div id="pair-note" class="muted"></div>
+      <div class="actions">
+        <button id="newcode" type="button" hidden>New code</button>
+        <button id="copy-live" type="button">Copy all</button>
+        <button id="end" type="button">End session</button>
+      </div>
+    </div>
+    <details id="term" class="panel term" hidden>
+      <summary>Guest has no browser? Join from its terminal</summary>
+      <div class="label">First time on that machine, download the client (Linux):</div>
+      <div class="cmd"><pre id="term-get"></pre><button id="term-get-copy" type="button" class="small">Copy</button></div>
+      <div class="label">Then join, and enter the code when asked:</div>
+      <div class="cmd"><pre id="term-join"></pre><button id="term-join-copy" type="button" class="small">Copy</button></div>
+      <div class="label">To check the download, <code>sha256sum drop</code> should print one of:</div>
+      <pre id="term-sums"></pre>
+    </details>
+    <div id="thread" class="thread" aria-live="polite"></div>
+    <form id="compose" class="compose" autocomplete="off">
+      <textarea id="text" placeholder="Text to send to the guest" aria-label="Message"></textarea>
+      <button class="primary">Send</button>
+    </form>
+    <p class="hint"><span id="send-msg"></span> Enter sends, Shift+Enter adds a line. Everything is saved to history on this computer.</p>
+  </section>
+
+  <section id="history" hidden>
+    <div class="history-bar">
+      <input id="search" type="search" placeholder="Search past messages" aria-label="Search past messages">
+      <span id="delete-all"></span>
+    </div>
+    <div id="sessions"></div>
+  </section>
+</main>
+<script src="/common.js"></script>
+<script src="/admin.js"></script>
+</body>
+</html>

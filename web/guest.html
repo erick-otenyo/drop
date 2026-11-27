@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>drop</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>dr<span>o</span>p</h1>
+    <span class="spacer"></span>
+    <span id="status" class="badge" hidden></span>
+  </header>
+
+  <section id="join" hidden>
+    <p>Enter the code shown on the host computer.</p>
+    <form id="join-form" autocomplete="off">
+      <input id="code" name="code" maxlength="7" autocapitalize="characters" spellcheck="false" aria-label="Join code" autofocus>
+      <button class="primary" id="join-btn">Join</button>
+    </form>
+    <p id="join-msg" class="error" role="alert"></p>
+  </section>
+
+  <section id="thread-view" class="thread-wrap" hidden>
+    <div id="thread" class="thread" aria-live="polite"></div>
+    <form id="compose" class="compose" autocomplete="off">
+      <textarea id="text" placeholder="Send text back to the host" aria-label="Message"></textarea>
+      <button class="primary">Send</button>
+    </form>
+    <p class="hint"><span id="send-msg"></span> Enter sends, Shift+Enter adds a line. Nothing is stored on this computer.</p>
+  </section>
+
+  <section id="ended" class="panel" hidden>
+    <p id="ended-msg"></p>
+    <p class="muted">Nothing from the session is kept on this computer. You can close this tab.</p>
+  </section>
+</main>
+<script src="/vendor.js"></script>
+<script src="/common.js"></script>
+<script src="/guest.js"></script>
+</body>
+</html>
