@@ -116,3 +116,7 @@ cd websrc && npm install && npx esbuild crypto-entry.js --bundle --minify \
 ```
 
 Tests: `make test`
+
+## License
+
+MIT. See [LICENSE](LICENSE).
