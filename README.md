@@ -63,7 +63,8 @@ A plain `go build` also works, but that host has no clients to serve.
 
 Internet mode needs Tailscale with HTTPS certificates and Funnel enabled for
 your tailnet (one time, in the Tailscale admin console). If they are not, the
-admin page shows the link Tailscale gives for enabling them.
+admin page shows the link Tailscale gives for enabling them. Setup steps and how it is
+wired are in [docs/internet-mode.md](docs/internet-mode.md).
 
 The host is tested on macOS; it also builds for Linux, where hosting has not
 been tested. The terminal guest is tested on Ubuntu 24.04 (ARM 64-bit).
